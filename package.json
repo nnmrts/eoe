@@ -1,6 +1,6 @@
 {
 	"name": "eoe",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "geometry library",
 	"main": "index.js",
 	"author": "nnmrts <nanomiratus@gmail.com>",
