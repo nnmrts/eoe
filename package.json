@@ -1,9 +1,13 @@
 {
-  "name": "eoe",
-  "version": "0.1.0",
-  "description": "geometry library",
-  "main": "index.js",
-  "author": "Nano Miratus <nanomiratus@gmail.com>",
-  "license": "MIT",
-  "private": false
+	"name": "eoe",
+	"version": "0.1.0",
+	"description": "geometry library",
+	"main": "index.js",
+	"author": "nnmrts <nanomiratus@gmail.com>",
+	"license": "MIT",
+	"private": false,
+	"devDependencies": {
+		"@pumpn/eslint-config": "^0.5.0",
+		"eslint": "^6.4.0"
+	}
 }
