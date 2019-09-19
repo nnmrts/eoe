@@ -1,0 +1,9 @@
+{
+  "name": "eoe",
+  "version": "0.1.0",
+  "description": "geometry library",
+  "main": "index.js",
+  "author": "Nano Miratus <nanomiratus@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
