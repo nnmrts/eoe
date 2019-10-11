@@ -1,0 +1,79 @@
+[
+	{
+		"name": "ZeroDimensionalSpace",
+		"children": [
+			{
+				"name": "Point"
+			}
+		]
+	},
+	{
+		"name": "OneDimensionalSpace",
+		"children": [
+			{
+				"name": "Line"
+			}
+		]
+	},
+	{
+		"name": "TwoDimensionalSpace",
+		"children": [
+			{
+				"name": "Curve",
+				"children": [
+					{
+						"name": "PolygonalChain",
+						"children": [
+							{
+								"name": "Polygon",
+								"children": [
+									{
+										"name": "Quadrilateral",
+										"children": [
+											{
+												"name": "Trapezoid",
+												"children": [
+													{
+														"name": "Parallelogram",
+														"children": [
+															{
+																"name": "Rectangle",
+																"children": [
+																	{
+																		"name": "Square"
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"name": "SmoothCurve",
+						"children": [
+							{
+								"name": "Oval",
+								"children": [
+									{
+										"name": "Ellipse",
+										"children": [
+											{
+												"name": "Circle"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]
