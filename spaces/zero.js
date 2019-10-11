@@ -7,9 +7,9 @@ import Position from "../concepts/position.js";
  *
  * @author nnmrts <nanomiratus@gmail.com>
  * @date 2019-09-19
- * @class Zero
+ * @class ZeroDimensionalSpace
  */
-class Zero {
+class ZeroDimensionalSpace {
 	position: Position;
 
 	x: number;
@@ -19,12 +19,12 @@ class Zero {
 	z: number;
 
 	/**
-	 * creates an instance of Zero
+	 * creates an instance of ZeroDimensionalSpace
 	 * @author nnmrts <nanomiratus@gmail.com>
 	 * @date 2019-09-19
 	 * @param {Position} position
 	 * position
-	 * @memberof Zero
+	 * @memberof ZeroDimensionalSpace
 	 */
 	constructor(position: Position) {
 		this.position = position;
@@ -43,4 +43,4 @@ class Zero {
 	}
 }
 
-export default Zero;
+export default ZeroDimensionalSpace;
