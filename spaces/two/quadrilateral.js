@@ -10,13 +10,20 @@ import Polygon from "./polygon.js";
  * @extends {Polygon}
  */
 class Quadrilateral extends Polygon {
-	static +edges: 4 = 4;
+	+edges = 4;
 
-	static +vertices: 4 = 4;
+	+vertices = 4;
 
-	static +diagonals: 2 = 2;
+	+diagonals = 2;
 
+	/**
+	 * creates an instance of Quadrilateral
+	 * @author nnmrts <nanomiratus@gmail.com>
+	 * @date 2019-10-15
+	 * @memberof Quadrilateral
+	 */
 	constructor() {
+		super();
 	}
 }
 

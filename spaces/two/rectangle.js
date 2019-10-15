@@ -17,12 +17,14 @@ type RectangleOptions = {|
  * @extends {Parallelogram}
  */
 class Rectangle extends Parallelogram {
-	static +cyclic: true = true;
+	+cyclic = true;
 
-	static +isogonal: true = true;
+	+isogonal = true;
+
+	+closed = false;
 
 	/**
-	 *Creates an instance of Rectangle.
+	 * creates an instance of Rectangle
 	 * @author nnmrts <nanomiratus@gmail.com>
 	 * @date 2019-09-23
 	 * @param {RectangleOptions} [options={

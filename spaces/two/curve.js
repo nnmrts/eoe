@@ -8,26 +8,43 @@
  * @class Curve
  */
 class Curve {
-	static +edges: ?number;
+	+edges: number;
 
-	static +vertices: ?number;
+	+vertices: number;
 
-	static +diagonals: ?number;
+	+diagonals: number;
 
-	static +convex: ?boolean;
+	+convex: boolean;
 
-	static +closed: boolean;
+	+closed: boolean;
 
-	static +cyclic: ?boolean;
+	+cyclic: boolean;
 
-	static +equilateral: ?boolean;
+	+tangential: boolean;
 
-	static +isogonal: ?boolean;
+	+equilateral: boolean;
 
-	static +isotoxal: ?boolean;
+	+isogonal: boolean;
 
+	+isotoxal: boolean;
+
+	+smooth: boolean;
+
+	/**
+	 * creates an instance of Curve
+	 * @author nnmrts <nanomiratus@gmail.com>
+	 * @date 2019-10-13
+	 * @memberof Curve
+	 */
 	constructor() {
+		const {
+			firstPoint,
+			lastPoint
+		} = this;
 
+		if (firstPoint === lastPoint) {
+			this.closed = true;
+		}
 	}
 }
 

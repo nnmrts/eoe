@@ -10,19 +10,14 @@ import Curve from "./curve.js";
  * @extends {Curve}
  */
 class PolygonalChain extends Curve {
-	static +edges: number;
-
-	static +vertices: number;
-
-	static +closed: boolean;
-
-	static +cyclic: boolean;
-
-	static +isogonal: boolean;
-
-	static +isotoxal: boolean;
-
+	/**
+	 * creates an instance of PolygonalChain
+	 * @author nnmrts <nanomiratus@gmail.com>
+	 * @date 2019-10-02
+	 * @memberof PolygonalChain
+	 */
 	constructor() {
+		super();
 	}
 }
 

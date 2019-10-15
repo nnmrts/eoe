@@ -11,8 +11,14 @@ import Quadrilateral from "./quadrilateral.js";
  * @extends {Quadrilateral}
  */
 class Trapezoid extends Quadrilateral {
-	static +convex: true;
+	+convex = true;
 
+	/**
+	 * creates an instance of Trapezoid
+	 * @author nnmrts <nanomiratus@gmail.com>
+	 * @date 2019-10-02
+	 * @memberof Trapezoid
+	 */
 	constructor() {
 		super();
 	}

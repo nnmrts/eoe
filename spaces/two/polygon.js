@@ -10,12 +10,14 @@ import PolygonalChain from "./polygonal-chain.js";
  * @extends {PolygonalChain}
  */
 class Polygon extends PolygonalChain {
-	static +closed: true = true;
+	+closed = true;
 
-	static +diagonals: number;
-
-	static +equilateral: boolean;
-
+	/**
+	 * creates an instance of Polygon
+	 * @author nnmrts <nanomiratus@gmail.com>
+	 * @date 2019-10-02
+	 * @memberof Polygon
+	 */
 	constructor() {
 		super();
 	}

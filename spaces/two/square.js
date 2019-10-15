@@ -22,12 +22,14 @@ type SquareOptions = {|
  * @extends {Rectangle}
  */
 class Square extends Rectangle {
-	static +equilateral: true = true;
+	+equilateral = true;
 
-	static +isotoxal: true = true;
+	+isotoxal = true;
+
+	+tangential = true;
 
 	/**
-	 *Creates an instance of Square.
+	 * creates an instance of Square
 	 * @author nnmrts <nanomiratus@gmail.com>
 	 * @date 2019-09-21
 	 * @param {SquareOptions} [options={sideLength: 1}]
