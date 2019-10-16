@@ -1,3 +1,5 @@
+import GeometricObject from "../../concepts/geometric-object.js";
+
 // @flow
 
 /**
@@ -6,8 +8,9 @@
  * @author nnmrts <nanomiratus@gmail.com>
  * @date 2019-10-02
  * @class Curve
+ * @extends {GeometricObject}
  */
-class Curve {
+class Curve extends GeometricObject {
 	+edges: number;
 
 	+vertices: number;
@@ -37,6 +40,7 @@ class Curve {
 	 * @memberof Curve
 	 */
 	constructor() {
+		super();
 		const {
 			firstPoint,
 			lastPoint
