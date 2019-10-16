@@ -10,6 +10,8 @@ import Curve from "./curve.js";
  * @extends {Curve}
  */
 class PolygonalChain extends Curve {
+	+equiangular: boolean;
+
 	/**
 	 * creates an instance of PolygonalChain
 	 * @author nnmrts <nanomiratus@gmail.com>

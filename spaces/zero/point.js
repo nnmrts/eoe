@@ -1,14 +1,15 @@
 // @flow
+import GeometricObject from "../../concepts/geometric-object.js";
 
 /**
- * position
+ * point
  *
  * @author nnmrts <nanomiratus@gmail.com>
  * @date 2019-09-19
- * @class Position
- * @extends {Array<number>}
+ * @class Point
+ * @extends {GeometricObject}
  */
-class Position extends Array<number> {
+class Point extends GeometricObject {
 	x: number;
 
 	y: number;
@@ -16,7 +17,7 @@ class Position extends Array<number> {
 	z: number;
 
 	/**
-	 * Creates an instance of Position.
+	 * creates an instance of Point
 	 *
 	 * @author nnmrts <nanomiratus@gmail.com>
 	 * @date 2019-09-19
@@ -24,7 +25,7 @@ class Position extends Array<number> {
 	 * coordinates
 	 * @memberof Position
 	 */
-	constructor(...coordinates: number[]): number[] {
+	constructor(...coordinates: number[]) {
 		super();
 
 		const [
@@ -38,9 +39,7 @@ class Position extends Array<number> {
 			y,
 			z
 		});
-
-		return Array.of(...coordinates);
 	}
 }
 
-export default Position;
+export default Point;

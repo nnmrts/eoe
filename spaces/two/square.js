@@ -1,16 +1,22 @@
 // @flow
-import Position from "../../concepts/position.js";
+import Point from "../zero/point.js";
+import GeometricObject from "../../concepts/geometric-object.js";
 
 import Rectangle from "./rectangle.js";
+import Circle from "./circle.js";
 
 type SquareOptions = {|
-	sideLength: number
+	sideLength: number,
+	position: Point
 |} | {|
-	diagonalLength: number
+	diagonalLength: number,
+	position: Point
 |} | {|
-	perimeter: number
+	perimeter: number,
+	position: Point
 |} | {|
-	area: number
+	area: number,
+	position: Point
 |};
 
 /**
@@ -39,8 +45,13 @@ class Square extends Rectangle {
 	 * @memberof Square
 	 */
 	constructor(options: SquareOptions = {
-		sideLength: 1
-	}, position: Position = new Position(0, 0)) {
+		sideLength: 1,
+		position: new Point(0, 0)
+	}) {
+		const {
+			position
+		} = options;
+
 		let sideLength;
 
 		if (options.sideLength) {
@@ -59,12 +70,70 @@ class Square extends Rectangle {
 		if (sideLength) {
 			super({
 				sideALength: sideLength,
-				sideBLength: sideLength
-			}, position);
+				sideBLength: sideLength,
+				position
+			});
+
+			this.sideLength = sideLength;
+
+			this.vertexMap = new Map();
+
+			this.vertexMap.set("A", new Point(position.x, position.y));
+			this.vertexMap.set("B", new Point(position.x + sideLength, position.y));
+			this.vertexMap.set("C", new Point(position.x, position.y + sideLength));
+			this.vertexMap.set("D", new Point(position.x, position.y + sideLength));
 		}
 		else {
 			throw new Error("invalid");
 		}
+	}
+
+	/**
+	 *
+	 *
+	 * @param {GeometricObject} object
+	 * a geometric object
+	 * @returns {boolean}
+	 * if passed object is inside current object
+	 */
+	contains = (object: GeometricObject): boolean => {
+		console.info(this.equiangular);
+		return true;
+	}
+
+	/**
+	 *
+	 *
+	 * @param {Circle} object
+	 * a geometric object
+	 * @returns {function}
+	 * function
+	 */
+	morph = (object: Circle): function => {
+		if (object instanceof Circle) {
+			const {
+				sideLength
+			} = this;
+
+			return (position: Point): Point => {
+				const {
+					x,
+					y
+				} = position;
+
+				const normalizedX = (((x - 0) * (1 - -1)) / (sideLength - 0)) + -1;
+				const normalizedY = (((y - 0) * (1 - -1)) / (sideLength - 0)) + -1;
+
+				const newX = normalizedX * Math.sqrt(1 - (((normalizedY) ** 2) / 2));
+				const newY = normalizedY * Math.sqrt(1 - (((normalizedX) ** 2) / 2));
+
+				const denormalizedX = (((newX - -1) * (sideLength - 0)) / (1 - -1)) + 0;
+				const denormalizedY = (((newY - -1) * (sideLength - 0)) / (1 - -1)) + 0;
+
+				return new Point(denormalizedX, denormalizedY);
+			};
+		}
+		return () => {};
 	}
 }
 

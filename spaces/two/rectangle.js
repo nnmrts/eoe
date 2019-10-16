@@ -1,11 +1,12 @@
 // @flow
-import Position from "../../concepts/position.js";
+import Point from "../zero/point.js";
 
 import Parallelogram from "./parallelogram.js";
 
 type RectangleOptions = {|
 	sideALength: number,
-	sideBLength: number
+	sideBLength: number,
+	position: Point
 |};
 
 /**
@@ -23,6 +24,8 @@ class Rectangle extends Parallelogram {
 
 	+closed = false;
 
+	+equiangular = true;
+
 	/**
 	 * creates an instance of Rectangle
 	 * @author nnmrts <nanomiratus@gmail.com>
@@ -38,8 +41,9 @@ class Rectangle extends Parallelogram {
 	 */
 	constructor(options: RectangleOptions = {
 		sideALength: 1,
-		sideBLength: 2
-	}, position: Position) {
+		sideBLength: 2,
+		position: new Point(0, 0)
+	}) {
 		super();
 	}
 }
