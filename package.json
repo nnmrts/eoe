@@ -3,11 +3,34 @@
 	"version": "0.2.0",
 	"description": "geometry library",
 	"main": "index.js",
+	"scripts": {
+		"test": "ava"
+	},
 	"author": "nnmrts <nanomiratus@gmail.com>",
 	"license": "MIT",
 	"private": false,
 	"devDependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/plugin-transform-flow-strip-types": "^7.6.3",
+		"@babel/plugin-transform-runtime": "^7.6.2",
+		"@babel/preset-env": "^7.6.3",
+		"@babel/preset-flow": "^7.0.0",
+		"@babel/register": "^7.6.2",
 		"@pumpn/eslint-config": "^0.5.0",
+		"ava": "^2.4.0",
 		"eslint": "^6.4.0"
+	},
+	"repository": "https://github.com/nnmrts/eoe.git",
+	"ava": {
+		"require": [
+			"@babel/register"
+		],
+		"babel": {
+			"testOptions": {
+				"plugins": [
+					"@babel/plugin-transform-flow-strip-types"
+				]
+			}
+		}
 	}
 }
