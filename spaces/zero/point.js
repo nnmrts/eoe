@@ -16,6 +16,10 @@ class Point extends GeometricObject {
 
 	z: number;
 
+	$key: "x" | "y" | "z";
+
+	$value: number;
+
 	/**
 	 * creates an instance of Point
 	 *
@@ -28,11 +32,15 @@ class Point extends GeometricObject {
 	constructor(...coordinates: number[]) {
 		super();
 
-		const [
+		let [
 			x,
 			y,
 			z
 		] = coordinates;
+
+		x = x || 0;
+		y = y || 0;
+		z = z || 0;
 
 		Object.assign(this, {
 			x,
