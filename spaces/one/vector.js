@@ -130,7 +130,15 @@ class Vector extends LineSegment {
 	}
 
 	// TODO: 3D
-	rotate = (degrees: number) => {
+	/**
+	 *
+	 *
+	 * @param {number} angle
+	 * angle in degrees
+	 * @returns {Vector}
+	 * itself
+	 */
+	rotate = (angle: number): Vector => {
 		const {
 			tail,
 			head
@@ -138,25 +146,27 @@ class Vector extends LineSegment {
 
 		const x = (
 			(
-				(head.x - tail.x) * Math.cos(degrees)
+				(head.x - tail.x) * Math.cos(angle)
 			) -
 			(
-				(head.y - tail.y) * Math.sin(degrees)
+				(head.y - tail.y) * Math.sin(angle)
 			) -
 			tail.x
 		);
 
 		const y = (
 			(
-				(head.x - tail.x) * Math.sin(degrees)
+				(head.x - tail.x) * Math.sin(angle)
 			) +
 			(
-				(head.y - tail.y) * Math.cos(degrees)
+				(head.y - tail.y) * Math.cos(angle)
 			) -
 			tail.y
 		);
 
 		this.head = new Point(x, y);
+
+		return this;
 	}
 }
 
