@@ -181,13 +181,11 @@ class Square extends Rectangle {
 	 */
 	midpoint = (): Point => {
 		const {
-			vertexMap: {
-				get: getVertex
-			}
+			vertexMap
 		} = this;
 
-		const vertex1 = getVertex("A");
-		const vertex2 = getVertex("B");
+		const vertex1 = vertexMap.get("A");
+		const vertex2 = vertexMap.get("B");
 
 		if (vertex1 && vertex2) {
 			return new Vector(
@@ -223,22 +221,19 @@ class Square extends Rectangle {
 	 */
 	rotate = (angle: number, clockwise: boolean): Square => {
 		const {
-			vertexMap: {
-				get: getVertex,
-				set: setVertex
-			}
+			vertexMap
 		} = this;
 
-		const vertex1 = getVertex("A");
-		const vertex2 = getVertex("B");
-		const vertex3 = getVertex("C");
-		const vertex4 = getVertex("D");
+		const vertex1 = vertexMap.get("A");
+		const vertex2 = vertexMap.get("B");
+		const vertex3 = vertexMap.get("C");
+		const vertex4 = vertexMap.get("D");
 
 		if (vertex1 && vertex2 && vertex3 && vertex4) {
-			setVertex("A", new Vector(this.midpoint(), vertex1).rotate(clockwise ? -angle : angle).head);
-			setVertex("B", new Vector(this.midpoint(), vertex2).rotate(clockwise ? -angle : angle).head);
-			setVertex("C", new Vector(this.midpoint(), vertex3).rotate(clockwise ? -angle : angle).head);
-			setVertex("D", new Vector(this.midpoint(), vertex4).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("A", new Vector(this.midpoint(), vertex1).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("B", new Vector(this.midpoint(), vertex2).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("C", new Vector(this.midpoint(), vertex3).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("D", new Vector(this.midpoint(), vertex4).rotate(clockwise ? -angle : angle).head);
 		}
 
 		return this;
@@ -254,15 +249,13 @@ class Square extends Rectangle {
 	 */
 	morph = (object: Circle): (point: Point) => Point => {
 		const {
-			vertexMap: {
-				get: getVertex
-			}
+			vertexMap
 		} = this;
 
-		const vertex1 = getVertex("A");
-		const vertex2 = getVertex("B");
-		const vertex3 = getVertex("C");
-		const vertex4 = getVertex("D");
+		const vertex1 = vertexMap.get("A");
+		const vertex2 = vertexMap.get("B");
+		const vertex3 = vertexMap.get("C");
+		const vertex4 = vertexMap.get("D");
 
 		if (vertex1 && vertex2 && vertex3 && vertex4) {
 			const edgeAB = new Vector(vertex1, vertex2);
@@ -291,14 +284,12 @@ class Square extends Rectangle {
 				const normalMax = 1;
 
 				const {
-					vertexMap: {
-						get: orthogonalGetVertex
-					}
+					vertexMap: orthogonalVertexMap
 				} = orthogonalSquare;
 
-				const orthogonalVertex1 = orthogonalGetVertex("A");
-				const orthogonalVertex2 = orthogonalGetVertex("B");
-				const orthogonalVertex3 = orthogonalGetVertex("C");
+				const orthogonalVertex1 = orthogonalVertexMap.get("A");
+				const orthogonalVertex2 = orthogonalVertexMap.get("B");
+				const orthogonalVertex3 = orthogonalVertexMap.get("C");
 
 				if (orthogonalVertex1 && orthogonalVertex2 && orthogonalVertex3) {
 					const squareXMin = orthogonalVertex1.x;
