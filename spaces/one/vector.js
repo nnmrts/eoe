@@ -146,13 +146,13 @@ class Vector extends LineSegment {
 
 		const angleInRadians = angle * (Math.PI / 180);
 
-		const x = (
-			(head.x - tail.x) * Math.cos(angleInRadians)
-		) - 
-		(
-			(tail.y - head.y) * Math.sin(angleInRadians)
-		) +
-		tail.x;
+		// const x = (
+		// 	(head.x - tail.x) * Math.cos(angleInRadians)
+		// ) -
+		// (
+		// 	(tail.y - head.y) * Math.sin(angleInRadians)
+		// ) +
+		// tail.x;
 
 		const x = (
 			(
