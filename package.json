@@ -1,6 +1,6 @@
 {
 	"name": "eoe",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "geometry library",
 	"main": "dist/index.js",
 	"scripts": {
