@@ -1,6 +1,6 @@
 // @flow
 
-import Position from "../concepts/position.js";
+import Point from "./zero/point.js";
 
 /**
  * zero-dimensional space
@@ -10,7 +10,7 @@ import Position from "../concepts/position.js";
  * @class ZeroDimensionalSpace
  */
 class ZeroDimensionalSpace {
-	position: Position;
+	position: Point;
 
 	x: number;
 
@@ -26,14 +26,14 @@ class ZeroDimensionalSpace {
 	 * position
 	 * @memberof ZeroDimensionalSpace
 	 */
-	constructor(position: Position) {
+	constructor(position: Point) {
 		this.position = position;
 
-		const [
+		const {
 			x,
 			y,
 			z
-		] = position;
+		} = position;
 
 		Object.assign(this, {
 			x,

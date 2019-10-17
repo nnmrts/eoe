@@ -1,7 +1,4 @@
 // @flow
-
-import Position from "../concepts/position.js";
-
 import ZeroDimensionalSpace from "./zero.js";
 import Square from "./two/square.js";
 

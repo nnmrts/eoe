@@ -1,7 +1,4 @@
 // @flow
-
-import Position from "../concepts/position.js";
-
 import TwoDimensionalSpace from "./two.js";
 
 /**
