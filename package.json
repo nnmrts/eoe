@@ -5,7 +5,8 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"test": "ava",
-		"build": "parcel build index.js"
+		"build": "parcel build index.js",
+		"prepublish": "yarn build"
 	},
 	"author": "nnmrts <nanomiratus@gmail.com>",
 	"license": "MIT",
