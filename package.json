@@ -18,7 +18,8 @@
 		"@babel/register": "^7.6.2",
 		"@pumpn/eslint-config": "^0.5.0",
 		"ava": "^2.4.0",
-		"eslint": "^6.4.0"
+		"eslint": "^6.4.0",
+		"flow-bin": "^0.109.0"
 	},
 	"repository": "https://github.com/nnmrts/eoe.git",
 	"ava": {
@@ -31,6 +32,8 @@
 					"@babel/plugin-transform-flow-strip-types"
 				]
 			}
-		}
+		},
+		"verbose": true,
+		"failFast": false
 	}
 }
