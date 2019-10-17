@@ -51,6 +51,22 @@ class LineSegment extends GeometricObject {
 			((endPoint1.z + endPoint2.z) / 2)
 		);
 	}
+
+	// TODO: 3D
+	/**
+	 *
+	 *
+	 * @returns {number}
+	 * length
+	 */
+	length = (): number => {
+		const {
+			endPoint1,
+			endPoint2
+		} = this;
+
+		return Math.sqrt(((endPoint2.x - endPoint1.x) ** 2) + ((endPoint2.y - endPoint1.y) ** 2));
+	}
 }
 
 export default LineSegment;
