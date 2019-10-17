@@ -185,12 +185,12 @@ class Square extends Rectangle {
 		} = this;
 
 		const vertex1 = vertexMap.get("A");
-		const vertex2 = vertexMap.get("B");
+		const vertex3 = vertexMap.get("C");
 
-		if (vertex1 && vertex2) {
+		if (vertex1 && vertex3) {
 			return new Vector(
 				vertex1,
-				vertex2
+				vertex3
 			).midpoint();
 		}
 		throw new Error("midpoint fail");
