@@ -4,9 +4,9 @@ import Point from "../zero/point.js";
 import Parallelogram from "./parallelogram.js";
 
 type RectangleOptions = {|
-	sideALength: number,
-	sideBLength: number,
-	position: Point
+	edge1Length: number,
+	edge2Length: number,
+	vertex1: Point
 |};
 
 /**
@@ -40,9 +40,9 @@ class Rectangle extends Parallelogram {
 	 * @memberof Rectangle
 	 */
 	constructor(options: RectangleOptions = {
-		sideALength: 1,
-		sideBLength: 2,
-		position: new Point(0, 0)
+		edge1Length: 1,
+		edge2Length: 2,
+		vertex1: new Point(0, 0)
 	}) {
 		super();
 	}

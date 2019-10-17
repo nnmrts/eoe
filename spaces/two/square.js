@@ -4,20 +4,39 @@ import GeometricObject from "../../concepts/geometric-object.js";
 
 import Rectangle from "./rectangle.js";
 import Circle from "./circle.js";
+import Vector from "../one/vector.js";
+
+type HelpingPoints = {|
+	vertex1: Point,
+	...{|
+		vertex2?: Point
+	|} | {|
+		vertex3?: Point
+	|}
+|};
+
+type RequiredPoints = {|
+	vertex1: Point,
+	...{|
+		vertex2: Point
+	|} | {|
+		vertex3: Point
+	|}
+|};
 
 type SquareOptions = {|
-	sideLength: number,
-	position: Point
+	edgeLength: number,
+	...HelpingPoints
 |} | {|
 	diagonalLength: number,
-	position: Point
+	...HelpingPoints
 |} | {|
 	perimeter: number,
-	position: Point
+	...HelpingPoints
 |} | {|
 	area: number,
-	position: Point
-|};
+	...HelpingPoints
+|} | RequiredPoints;
 
 /**
  *
@@ -45,43 +64,61 @@ class Square extends Rectangle {
 	 * @memberof Square
 	 */
 	constructor(options: SquareOptions = {
-		sideLength: 1,
-		position: new Point(0, 0)
+		edgeLength: 1,
+		vertex1: new Point(0, 0)
 	}) {
-		const {
-			position
-		} = options;
+		let edgeLength;
 
-		let sideLength;
-
-		if (options.sideLength) {
-			sideLength = options.sideLength;
+		if (options.edgeLength) {
+			edgeLength = options.edgeLength;
 		}
 		else if (options.diagonalLength) {
-			sideLength = options.diagonalLength / Math.sqrt(2);
+			edgeLength = options.diagonalLength / Math.sqrt(2);
 		}
 		else if (options.perimeter) {
-			sideLength = options.perimeter / 4;
+			edgeLength = options.perimeter / 4;
 		}
 		else if (options.area) {
-			sideLength = Math.sqrt(options.area);
+			edgeLength = Math.sqrt(options.area);
+		}
+		else if (options.vertex2) {
+			const {
+				vertex1,
+				vertex2
+			} = options;
+
+			edgeLength = Math.sqrt(((vertex2.x - vertex1.x) ** 2) + ((vertex2.y - vertex1.y) ** 2));
+		}
+		else if (options.vertex3) {
+			const {
+				vertex1,
+				vertex3
+			} = options;
+
+			edgeLength = Math.sqrt(((vertex3.x - vertex1.x) ** 2) + ((vertex3.y - vertex1.y) ** 2)) / Math.sqrt(2);
 		}
 
-		if (sideLength) {
+		if (edgeLength) {
+			const {
+				vertex1
+			} = options;
+
+			const vertex2 = options.vertex2 || options.vertex3 ? new Vector(new Vector(vertex1, options.vertex3).midpoint(), options.vertex3)
+
 			super({
-				sideALength: sideLength,
-				sideBLength: sideLength,
-				position
+				edge1Length: edgeLength,
+				edge2Length: edgeLength,
+				vertex1
 			});
 
-			this.sideLength = sideLength;
+			this.sideLength = edgeLength;
 
 			this.vertexMap = new Map();
 
-			this.vertexMap.set("A", new Point(position.x, position.y));
-			this.vertexMap.set("B", new Point(position.x + sideLength, position.y));
-			this.vertexMap.set("C", new Point(position.x, position.y + sideLength));
-			this.vertexMap.set("D", new Point(position.x, position.y + sideLength));
+			this.vertexMap.set("A", vertex1);
+			this.vertexMap.set("B", vertex2 || new Point(1, 0));
+			this.vertexMap.set("C", new Point(position.x, position.y + edgeLength));
+			this.vertexMap.set("D", new Point(position.x, position.y + edgeLength));
 		}
 		else {
 			throw new Error("invalid");
@@ -112,7 +149,7 @@ class Square extends Rectangle {
 	morph = (object: Circle): function => {
 		if (object instanceof Circle) {
 			const {
-				sideLength
+				edgeLength
 			} = this;
 
 			return (position: Point): Point => {
@@ -121,14 +158,14 @@ class Square extends Rectangle {
 					y
 				} = position;
 
-				const normalizedX = (((x - 0) * (1 - -1)) / (sideLength - 0)) + -1;
-				const normalizedY = (((y - 0) * (1 - -1)) / (sideLength - 0)) + -1;
+				const normalizedX = (((x - 0) * (1 - -1)) / (edgeLength - 0)) + -1;
+				const normalizedY = (((y - 0) * (1 - -1)) / (edgeLength - 0)) + -1;
 
 				const newX = normalizedX * Math.sqrt(1 - (((normalizedY) ** 2) / 2));
 				const newY = normalizedY * Math.sqrt(1 - (((normalizedX) ** 2) / 2));
 
-				const denormalizedX = (((newX - -1) * (sideLength - 0)) / (1 - -1)) + 0;
-				const denormalizedY = (((newY - -1) * (sideLength - 0)) / (1 - -1)) + 0;
+				const denormalizedX = (((newX - -1) * (edgeLength - 0)) / (1 - -1)) + 0;
+				const denormalizedY = (((newY - -1) * (edgeLength - 0)) / (1 - -1)) + 0;
 
 				return new Point(denormalizedX, denormalizedY);
 			};
