@@ -2,14 +2,16 @@
 	"name": "eoe",
 	"version": "0.3.0",
 	"description": "geometry library",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"scripts": {
-		"test": "ava"
+		"test": "ava",
+		"build": "parcel build index.js"
 	},
 	"author": "nnmrts <nanomiratus@gmail.com>",
 	"license": "MIT",
 	"private": false,
 	"devDependencies": {
+		"@babel/core": "^7.6.4",
 		"@babel/plugin-proposal-class-properties": "^7.5.5",
 		"@babel/plugin-transform-flow-strip-types": "^7.6.3",
 		"@babel/plugin-transform-runtime": "^7.6.2",
@@ -19,7 +21,8 @@
 		"@pumpn/eslint-config": "^0.5.0",
 		"ava": "^2.4.0",
 		"eslint": "^6.4.0",
-		"flow-bin": "^0.109.0"
+		"flow-bin": "^0.109.0",
+		"parcel-bundler": "^1.12.4"
 	},
 	"repository": "https://github.com/nnmrts/eoe.git",
 	"ava": {
