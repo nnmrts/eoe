@@ -254,6 +254,8 @@ class Square extends Rectangle {
 			vertexMap
 		} = this;
 
+		const midpoint = this.midpoint();
+
 		const vertex1 = vertexMap.get("A");
 		const vertex2 = vertexMap.get("B");
 		const vertex3 = vertexMap.get("C");
@@ -314,7 +316,7 @@ class Square extends Rectangle {
 						const denormalizedX = (((newX - normalMin) * (squareXMax - squareXMin)) / (normalMax - normalMin)) + squareXMin;
 						const denormalizedY = (((newY - normalMin) * (squareYMax - squareYMin)) / (normalMax - normalMin)) + squareYMin;
 
-						return new Vector(this.midpoint(), new Point(denormalizedX, denormalizedY)).rotate(angle).head;
+						return new Vector(midpoint, new Point(denormalizedX, denormalizedY)).rotate(angle).head;
 					};
 				}
 			}
