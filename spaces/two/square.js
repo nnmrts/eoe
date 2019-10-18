@@ -274,7 +274,7 @@ class Square extends Rectangle {
 					xAxisParallelThroughA.length() *
 					edgeAB.length()
 				)
-			);
+			) * (180 / Math.PI);
 
 			const orthogonalSquare = new Square({
 				vertex1,
