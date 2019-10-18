@@ -229,11 +229,13 @@ class Square extends Rectangle {
 		const vertex3 = vertexMap.get("C");
 		const vertex4 = vertexMap.get("D");
 
+		const midpoint = this.midpoint();
+
 		if (vertex1 && vertex2 && vertex3 && vertex4) {
-			vertexMap.set("A", new Vector(this.midpoint(), vertex1).rotate(clockwise ? -angle : angle).head);
-			vertexMap.set("B", new Vector(this.midpoint(), vertex2).rotate(clockwise ? -angle : angle).head);
-			vertexMap.set("C", new Vector(this.midpoint(), vertex3).rotate(clockwise ? -angle : angle).head);
-			vertexMap.set("D", new Vector(this.midpoint(), vertex4).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("A", new Vector(midpoint, vertex1).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("B", new Vector(midpoint, vertex2).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("C", new Vector(midpoint, vertex3).rotate(clockwise ? -angle : angle).head);
+			vertexMap.set("D", new Vector(midpoint, vertex4).rotate(clockwise ? -angle : angle).head);
 		}
 
 		return this;
