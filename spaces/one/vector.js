@@ -150,15 +150,15 @@ class Vector extends LineSegment {
 			(head.x - tail.x) * Math.cos(angleInRadians)
 		) -
 		(
-			(tail.y - head.y) * Math.sin(angleInRadians)
+			(head.y - tail.y) * Math.sin(angleInRadians)
 		) +
 		tail.x;
 
 		const y = (
-			(tail.y - head.y) * Math.cos(angleInRadians)
-		) -
-		(
 			(head.x - tail.x) * Math.sin(angleInRadians)
+		) +
+		(
+			(head.y - tail.y) * Math.cos(angleInRadians)
 		) +
 		tail.y;
 
