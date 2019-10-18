@@ -263,21 +263,12 @@ class Square extends Rectangle {
 
 		if (vertex1 && vertex2 && vertex3 && vertex4) {
 			const edgeAB = new Vector(vertex1, vertex2);
-			const xAxisParallelThroughA = new Vector(vertex1, new Point(vertex1.x + 10, vertex1.y));
+			const xAxisParallelThroughA = new Vector(vertex1, new Point(vertex2.x, vertex1.y));
 
 			console.log(edgeAB);
 			console.log(xAxisParallelThroughA);
 
-			const angle = Math.acos(
-				(
-					(xAxisParallelThroughA.head.x * xAxisParallelThroughA.head.y) +
-					(edgeAB.head.x * edgeAB.head.y)
-				) /
-				(
-					xAxisParallelThroughA.length() *
-					edgeAB.length()
-				)
-			) * (180 / Math.PI);
+			const angle = Math.acos(xAxisParallelThroughA.length() / edgeAB.length()) * (180 / Math.PI);
 
 			console.log(angle);
 
