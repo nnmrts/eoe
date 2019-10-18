@@ -265,6 +265,9 @@ class Square extends Rectangle {
 			const edgeAB = new Vector(vertex1, vertex2);
 			const xAxisParallelThroughA = new Vector(vertex1, new Point(vertex1.x + 10, vertex1.y));
 
+			console.log(edgeAB);
+			console.log(xAxisParallelThroughA);
+
 			const angle = Math.acos(
 				(
 					(xAxisParallelThroughA.head.x * xAxisParallelThroughA.head.y) +
@@ -276,6 +279,8 @@ class Square extends Rectangle {
 				)
 			) * (180 / Math.PI);
 
+			console.log(angle);
+
 			const orthogonalSquare = new Square({
 				vertex1,
 				vertex2,
@@ -283,7 +288,10 @@ class Square extends Rectangle {
 				vertex4,
 			}).rotate(45 - angle, true);
 
+			console.log(orthogonalSquare);
+
 			if (object instanceof Circle) {
+				console.log("instanceof worked");
 				const normalMin = -1;
 				const normalMax = 1;
 
@@ -296,6 +304,7 @@ class Square extends Rectangle {
 				const orthogonalVertex3 = orthogonalVertexMap.get("C");
 
 				if (orthogonalVertex1 && orthogonalVertex2 && orthogonalVertex3) {
+					console.log("vertices here");
 					const squareXMin = orthogonalVertex1.x;
 					const squareXMax = orthogonalVertex2.x;
 					const squareYMin = orthogonalVertex1.y;
